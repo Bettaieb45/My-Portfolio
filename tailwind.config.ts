@@ -8,9 +8,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        jura: ["var(--font-jura)", "sans-serif"],
+        Just_Another_Hand: ["var(--font-just-another-hand)", "cursive"],
       },
     },
   },
