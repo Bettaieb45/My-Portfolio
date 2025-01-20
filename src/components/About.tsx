@@ -15,11 +15,11 @@ const About = () => {
       <div className="about-wrapper">
         <h1>About Me</h1>
         <p className="py-10">
-          "I’m Aziz, a junior web developer specializing in responsive,
+          &quot; I’m Aziz, a junior web developer specializing in responsive,
           SEO-friendly websites using modern technologies like React.js,
           Next.js, Tailwind CSS, and WordPress. I’m also experienced in Python
           Selenium automation, delivering clean, user-friendly designs and
-          efficient workflows. Let’s build something amazing together!"
+          efficient workflows. Let’s build something amazing together! &quot;
         </p>
         <h3 className="py-4">Best Skill on:</h3>
         <div className="skills-wrapper flex gap-6 pointer-events-auto">

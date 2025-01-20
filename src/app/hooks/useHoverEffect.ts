@@ -12,7 +12,7 @@ const useHoverEffect = (
       );
 
       if (validRefs.length > 0) {
-        validRefs.forEach((shape, index) => {
+        validRefs.forEach((shape) => {
           let hoverTimeout: NodeJS.Timeout;
 
           const onHover = () => {
