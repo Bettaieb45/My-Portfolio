@@ -1,6 +1,7 @@
 import { google } from 'googleapis';
+import { NextRequest } from 'next/server';
 
-export async function GET(req) {
+export async function GET(req: NextRequest) {
   try {
     const url = new URL(req.url);
     const code = url.searchParams.get('code');

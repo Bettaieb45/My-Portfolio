@@ -175,7 +175,6 @@ const Contact = () => {
             <CtaButton
               text={loading ? 'Sending...' : 'Send Message'}
               type="submit"
-              disabled={loading}
             />
             {success && (
               <p className="text-green-500">Message sent successfully!</p>
