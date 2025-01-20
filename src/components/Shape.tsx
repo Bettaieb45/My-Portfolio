@@ -7,6 +7,7 @@ import useFloatingShapes from '../app/hooks/useFloatingShapes';
 import useDraggableShapes from '../app/hooks/useDraggableShapes';
 import useHoverEffect from '../app/hooks/useHoverEffect';
 import useScrollResponsiveShapes from '@/app/hooks/useScrollResponsiveShapes';
+
 const Shape = () => {
   const shapeRefs = useRef<(HTMLDivElement | null)[]>(
     new Array(shapes.length).fill(null),
@@ -24,7 +25,7 @@ const Shape = () => {
   // Generate random positions for shapes
   useEffect(() => {
     const generatedPositions = shapes.map((shape) => {
-      const { width, height } = dimensions[shape.type];
+      const { width, height } = dimensions[shape.type]; // TypeScript now recognizes this as valid
       const position = generateRandomPosition(width, height, existingPositions);
       existingPositions.push({ ...position, width, height });
       return { ...position, className: shape.className };
@@ -42,12 +43,13 @@ const Shape = () => {
   useHoverEffect(shapeRefs);
   // Reposition shapes when out of view
   useScrollResponsiveShapes(shapeRefs, 20, 'header');
+
   return (
     <>
       {positions.map((pos, index) => (
         <div
           key={index}
-          className={`absolute z-10 cursor-grab   ${pos.className}`}
+          className={`absolute z-10 cursor-grab ${pos.className}`}
           style={{
             top: `${pos.top}%`,
             left: `${pos.left}%`,
