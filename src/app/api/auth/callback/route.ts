@@ -2,11 +2,11 @@ import { google } from 'googleapis';
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest): Promise<Response> {
-  try {
-    console.log('GMAIL_CLIENT_ID:', process.env.GMAIL_CLIENT_ID);
-    console.log('GMAIL_CLIENT_SECRET:', process.env.GMAIL_CLIENT_SECRET);
-    console.log('GMAIL_REDIRECT_URI:', process.env.GMAIL_REDIRECT_URI);
+  console.log('GMAIL_CLIENT_ID:', process.env.GMAIL_CLIENT_ID);
+  console.log('GMAIL_CLIENT_SECRET:', process.env.GMAIL_CLIENT_SECRET);
+  console.log('GMAIL_REDIRECT_URI:', process.env.GMAIL_REDIRECT_URI);
 
+  try {
     console.log('Starting token exchange...');
     const url = new URL(req.url);
     const code = url.searchParams.get('code');
