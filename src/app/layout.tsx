@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Just_Another_Hand, Poppins, Jura } from '@next/font/google';
+import { Just_Another_Hand, Poppins, Jura } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header';
 import ShapesBackground from '@/components/ShapesBackground';
