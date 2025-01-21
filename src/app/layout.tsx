@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import ShapesBackground from '@/components/ShapesBackground';
 import Footer from '@/components/Footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 // Import fonts
 const justAnotherHand = Just_Another_Hand({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
       className={`${justAnotherHand.variable} ${poppins.variable} ${jura.variable}`}
     >
       <SpeedInsights />
+      <Analytics />
       <body className="bg-background text-foreground antialiased">
         <Header />
         {/* Header stays outside the relatively positioned container */}
