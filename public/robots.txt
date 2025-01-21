@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://aziz-portfolio.com
+
+# Sitemaps
+Sitemap: https://aziz-portfolio.com/sitemap.xml
