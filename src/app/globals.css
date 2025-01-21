@@ -7,60 +7,74 @@
   --foreground: #000000; /* Text color */
 }
 
-/* Fonts applied globally */
+/* Apply global font styles */
 html {
   font-family: var(--font-poppins), sans-serif;
   scroll-behavior: smooth;
 }
 
+body {
+  @apply antialiased; /* Improve text rendering */
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
+  @apply m-0; /* Remove default margins */
   font-family: var(--font-poppins), sans-serif;
+  letter-spacing: 0.5px;
 }
+
+/* Specific heading styles */
 h1 {
-  font-weight: bold;
+  @apply text-5xl font-bold leading-tight; /* Customize as needed */
 }
+
 h2 {
-  font-weight: 500;
-  font-size: 2em;
+  @apply text-3xl font-medium leading-snug; /* Customize as needed */
 }
+
+h3 {
+  @apply text-2xl font-semibold leading-snug; /* Customize as needed */
+}
+
 p {
   @apply font-bold text-lg;
+  font-family: var(--font-jura), sans-serif;
 }
-h3 {
-  @apply font-semibold text-2xl;
-}
-p,
+
 li,
 span {
   font-family: var(--font-jura), sans-serif;
 }
 
+/* Custom styles for logo */
 .logo {
   font-family: var(--font-just-another-hand), cursive;
 }
-.container-1120 > div {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
+/* Center content in the container */
 .container-1120 {
+  @apply mx-auto px-4; /* Center and add padding */
+  max-width: 1200px;
   scroll-margin: 100px;
 }
-.container-1120 > div {
-  @media screen and (max-width: 1199px) {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-/* Define reusable styles for navigation items */
+
+/* Navigation styles */
 .navigation-item a {
   @apply text-black hover:text-gray-600 transition-colors duration-300 relative;
 }
+
 .navigation-item a span {
   @apply absolute left-0 -bottom-1 w-0 h-1 bg-black transition-all duration-300;
 }
-/* Define reusable styles for shapes using Tailwind's @apply */
+
+/* Shape styles */
 .circle {
   @apply rounded-full bg-red-500 w-32 h-32;
 }
@@ -68,7 +82,7 @@ span {
 .triangle {
   @apply bg-transparent w-32 h-32;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background-color: #22c55e; /* Add background manually for Tailwind */
+  background-color: #22c55e; /* Tailwind doesn't support this directly */
 }
 
 .rectangle {
@@ -82,18 +96,8 @@ span {
 .square {
   @apply bg-purple-400 w-32 h-32 rounded-xl;
 }
-/* Ensure shapes are above background but below essential UI elements */
-.shapes-container {
-  z-index: 10; /* Higher than -10, but below essential UI elements */
-}
 
-/* Reset heading margins globally */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 !important; /* Remove default margin */
-  letter-spacing: 0.5px;
+/* Ensure shapes are above the background but below UI elements */
+.shapes-container {
+  z-index: 10; /* Adjust as needed */
 }

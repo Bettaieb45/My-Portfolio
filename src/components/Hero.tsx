@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="hero container-1120 py-32 " id="hero">
       <div className="hero-wrapper">
-        <h1 className="text-5xl font-bold leading-tight">Hi, I&apos;m Aziz</h1>
+        <h1>Hi, I&apos;m Aziz</h1>
         <h2 className="max-w-xl py-8">
           Junior Web Developer Specializing in Modern Web Technologies
         </h2>
