@@ -27,25 +27,67 @@ export async function POST(req: Request): Promise<Response> {
     const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
 
     // Owner's email content
+    // HTML content for the website owner's email
     const ownerEmailContent = `
-      <html>
-        <body>
-          <h1>New Contact Form Submission</h1>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong> ${message}</p>
-        </body>
-      </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 20px;
+      color: #444;
+    }
+    p {
+      margin: 10px 0;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>New Contact Form Submission</h1>
+    <p>You have received a new message from your website contact form:</p>
+    <p><span class="label">Name:</span> ${name}</p>
+    <p><span class="label">Email:</span> ${email}</p>
+    <p><span class="label">Message:</span></p>
+    <p>${message}</p>
+    <p style="margin-top: 20px; font-size: 12px; color: #999;">
+      This is an automated email sent by your website.
+    </p>
+  </div>
+</body>
+</html>
     `;
 
     const ownerEncodedMessage = Buffer.from(
-      `To: mohamedazizbettaieb6@gmail.com\nSubject: New Contact Form Submission from ${name}\nContent-Type: text/html\n\n${ownerEmailContent}`,
+      [
+        `To: mohamedazizbettaieb6@gmail.com`,
+        `Subject: New Contact Form Submission from ${name}`,
+        `Content-Type: text/html; charset=utf-8`,
+        ``,
+        ownerEmailContent,
+      ].join('\r\n'),
     )
       .toString('base64')
       .replace(/\+/g, '-')
       .replace(/\//g, '_')
       .replace(/=+$/, '');
-
     await gmail.users.messages.send({
       userId: 'me',
       requestBody: { raw: ownerEncodedMessage },
@@ -53,23 +95,66 @@ export async function POST(req: Request): Promise<Response> {
 
     // Confirmation email content
     const confirmationEmailContent = `
-      <html>
-        <body>
-          <h1>Thank You!</h1>
-          <p>Hello ${name},</p>
-          <p>We have received your message. We will get back to you shortly.</p>
-        </body>
-      </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 20px;
+      color: #444;
+    }
+    p {
+      margin: 10px 0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thank you, ${name}!</h1>
+    <p>Hi ${name},</p>
+    <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
+    <p>If you have any urgent questions, feel free to send me an email on mohamedazizbettaieb6@gmail.com</p>
+    <p>Best regards,<br>Mohamed Aziz Bettaieb</p>
+    <p class="footer">
+      This is an automated confirmation email. Please do not reply directly to this email.
+    </p>
+  </div>
+</body>
+</html>
     `;
 
     const confirmationEncodedMessage = Buffer.from(
-      `To: ${email}\nSubject: Thank you for contacting me\nContent-Type: text/html\n\n${confirmationEmailContent}`,
+      [
+        `To: ${email}`,
+        `Subject: Thank you for contacting me, ${name}!`,
+        `Content-Type: text/html; charset=utf-8`,
+        ``,
+        confirmationEmailContent,
+      ].join('\r\n'),
     )
       .toString('base64')
       .replace(/\+/g, '-')
       .replace(/\//g, '_')
       .replace(/=+$/, '');
-
     await gmail.users.messages.send({
       userId: 'me',
       requestBody: { raw: confirmationEncodedMessage },
