@@ -7,7 +7,7 @@ const contactLinks = [
   },
   {
     name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/mohamed-aziz-bettaieb/',
+    link: 'https://www.linkedin.com/in/mohamedazizbettaieb/',
     image: '/uploads/linkedin-logo.svg',
   },
   {

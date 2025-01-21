@@ -14,7 +14,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
   target = '_self', // Default to "_self"
 }) => {
   return (
-    <div className="cta-button">
+    <div className="cta-button pointer-events-auto">
       {href ? (
         // If "href" is provided, render an anchor tag
         <a

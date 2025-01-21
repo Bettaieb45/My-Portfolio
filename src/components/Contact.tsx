@@ -12,7 +12,7 @@ const contactLinks = [
   },
   {
     name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/mohamed-aziz-bettaieb/',
+    link: 'https://www.linkedin.com/in/mohamedazizbettaieb/',
     image: '/uploads/linkedin-logo.svg',
   },
   {
@@ -123,7 +123,7 @@ const Contact = () => {
           ))}
         </div>
 
-        <div className="max-w-3xl pointer-events-auto">
+        <div className="max-w-3xl ">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex-1 flex flex-col">
@@ -133,7 +133,7 @@ const Contact = () => {
                 <input
                   id="name"
                   type="text"
-                  className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black"
+                  className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black pointer-events-auto"
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
@@ -148,7 +148,7 @@ const Contact = () => {
                 <input
                   id="email"
                   type="email"
-                  className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black"
+                  className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black pointer-events-auto"
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleChange}
@@ -164,7 +164,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows={6}
-                className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black"
+                className="border border-black px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-black pointer-events-auto"
                 placeholder="Write your message here..."
                 value={formData.message}
                 onChange={handleChange}
