@@ -42,9 +42,9 @@ export default function RootLayout({
       lang="en"
       className={`${justAnotherHand.variable} ${poppins.variable} ${jura.variable}`}
     >
-      <SpeedInsights />
-      <Analytics />
       <body className="bg-background text-foreground antialiased">
+        <SpeedInsights />
+        <Analytics />
         <Header />
         {/* Header stays outside the relatively positioned container */}
         <main className="relative min-h-screen w-full">
