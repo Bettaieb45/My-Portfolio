@@ -26,7 +26,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio container-1120 py-16" id="portfolio">
       <div className="portfolio-wrapper">
-        <h2 className="text-4xl font-bold mb-12">Portfolio</h2>
+        <h2 className="mb-12">Portfolio</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-10">
           {projects.map((project, index) => (
             <div

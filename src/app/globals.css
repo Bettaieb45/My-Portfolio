@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-  @apply text-3xl font-medium leading-snug; /* Customize as needed */
+  @apply text-3xl font-semibold leading-snug; /* Customize as needed */
 }
 
 h3 {

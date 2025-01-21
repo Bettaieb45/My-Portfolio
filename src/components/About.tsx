@@ -13,7 +13,7 @@ const About = () => {
   return (
     <div className="about container-1120 py-16" id="about">
       <div className="about-wrapper">
-        <h1>About Me</h1>
+        <h2>About Me</h2>
         <p className="py-10">
           &quot; I’m Aziz, a junior web developer specializing in responsive,
           SEO-friendly websites using modern technologies like React.js,
