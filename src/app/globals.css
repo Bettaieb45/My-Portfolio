@@ -18,18 +18,21 @@ h2,
 h3 {
   font-family: var(--font-poppins), sans-serif;
 }
+/* Specific heading styles */
 h1 {
-  font-weight: bold;
+  @apply text-5xl font-bold leading-tight; /* Customize as needed */
 }
+
 h2 {
-  font-weight: 500;
-  font-size: 2em;
+  @apply text-3xl font-medium leading-snug; /* Customize as needed */
 }
+
+h3 {
+  @apply text-2xl font-semibold leading-snug; /* Customize as needed */
+}
+
 p {
   @apply font-bold text-lg;
-}
-h3 {
-  @apply font-semibold text-2xl;
 }
 p,
 li,
