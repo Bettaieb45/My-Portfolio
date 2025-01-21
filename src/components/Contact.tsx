@@ -85,7 +85,7 @@ const Contact = () => {
   return (
     <div className="Contact container-1120 py-16 " id="contact">
       <div className="contact-wrapper flex flex-col gap-6">
-        <h2 className="text-2xl font-bold">Contact Me</h2>
+        <h2>Contact Me</h2>
         <p>
           Feel free to reach out for any web development projects,
           collaborations, or questions.
